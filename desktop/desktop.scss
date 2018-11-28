@@ -1,42 +1,32 @@
-@function brightness($color) {
-  @return ((red($color) * .299) + (green($color) * .587) + (blue($color) * .114));
-}
+@import "common";
 
-@function color-chooser($dark, $light) {
-  @if brightness($primary) > brightness($secondary) {
-    @return $dark;
-  } @else {
-    @return $light;
-  }
-}
+/* @import "desktop/*"; TODO: get this working again */
 
-@function color-dynamic($color) {
-  @if lightness($color) > 75 {
-    @return $primary;
-  } @else {
-    @return #ffffff;
-  }
-}
+@import "desktop/alert";
+@import "desktop/banner";
+@import "desktop/compose";
+@import "desktop/discourse";
+@import "desktop/header";
+@import "desktop/login";
+@import "desktop/modal";
+@import "desktop/user-card";
+@import "desktop/category-list";
+@import "desktop/latest-topic-list";
+@import "desktop/topic-list";
+@import "desktop/topic-post";
+@import "desktop/topic";
+@import "desktop/upload";
+@import "desktop/user";
+@import "desktop/history";
+@import "desktop/queued-posts";
+@import "desktop/group";
+@import "desktop/groups";
 
-.btn-flat.cancel {
-  background-color: transparent;
-  color: $danger;
-}
-.discourse-no-touch .btn-flat.cancel:focus, .discourse-no-touch .btn-flat.cancel:hover {
-  background-color: color-chooser(rgba(204, 204, 204, 0.125), rgba(153, 153, 153, 0.2));
-  color: $danger;
-}
-.discourse-no-touch .btn-flat.cancel:active {
-  background-color: color-chooser(rgba(204, 204, 204, 0.25), rgba(153, 153, 153, 0.4));
-}
-.btn-flat.ok {
-  background-color: transparent;
-  color: $success;
-}
-.discourse-no-touch .btn-flat.ok:focus, .discourse-no-touch .btn-flat.ok:hover {
-  background-color: color-chooser(rgba(204, 204, 204, 0.125), rgba(153, 153, 153, 0.2));
-  color: $success;
-}
-.discourse-no-touch .btn-flat.ok:active {
-  background-color: color-chooser(rgba(204, 204, 204, 0.25), rgba(153, 153, 153, 0.4));
-}
+// Import all component-specific files
+@import "desktop/components/*";
+
+/* These files doesn't actually exist, they are injected by Stylesheet::Compiler. */
+
+@import "plugins";
+@import "plugins_desktop";
+@import "category_backgrounds";
